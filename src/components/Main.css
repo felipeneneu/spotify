@@ -1,3 +1,21 @@
+:root{
+  --neutral-50: hsl(0 0% 98%);
+  --neutral-100: hsl(0 0% 96.1%);
+  --neutral-200: hsl(0 0% 89.8%);
+  --neutral-300: hsl(0 0% 83.1%);
+  --neutral-400: hsl(0 0% 63.9%);
+  --neutral-500: hsl(0 0% 45.1%);
+  --neutral-600: hsl(0 0% 32.2%);
+  --neutral-700: hsl(0 0% 25.1%);
+  --neutral-800: hsl(0 0% 14.9%);
+  --neutral-900: hsl(0 0% 9%);
+  --neutral-950: hsl(0 0% 3.9%);
+  --neutral-1000: hsl(0 0% 3.9%);
+  
+}
+img{
+  max-width: 100%;
+}
 .main{
   font-family: var(--font-dm-sans);
   padding: 20px 0px;
@@ -7,6 +25,12 @@
   flex: 1;
 }
 
+/* item list */
+.item-list{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 .item-list__header{
   display: flex;
   justify-content: space-between;
@@ -27,13 +51,72 @@
 .item-list__link:hover{
   text-decoration: underline;
 }
+
+/* single item */
+.item-list__container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
 .single-item{
-  position: absolute;
+
+padding: 25px 16px;
+cursor: pointer;
+display: flex;
+align-items: center;
+flex-direction: column;
+gap: 10px;
+transition: background-color ease 200ms;
 }
-.single-item__div-image-button{
-  position: relative;
-}
+.single-item:hover{
+  text-decoration: none;
+  border-radius: 15px;
+  background-color: var(--neutral-900);
+  }
+  .single-item__div-image-button{
+    position: relative;
+  }
 .single-item__div-image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+  border-radius: 50%;
+}
+
+.single-item__icon{
+  position: absolute;
+  bottom: 7.5px;
+  right: 7.5px;
+  font-size: 50px;
+  color: hsl(141.9 69.2% 58%);
+  opacity: 0;
+  transform: translateY(100%);
+  transition-timing-function: ease;
+  transition-duration: 200ms;
+  transition-property: opacity, transform;
+}
+.single-item:hover .single-item__icon{
+
+  opacity: 1;
+  transform: translateY(0);
+}
+.single-item__title{
+  font-size: 16px;
+  font-weight: 600;
+}
+.single-item__type{
+  font-size: 13px;
+}
+.single-item__texts{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+
+/* .single-item__div-image{
   width: 140px;
   height: 140px;
   border-radius: 50%;
@@ -41,4 +124,4 @@
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
